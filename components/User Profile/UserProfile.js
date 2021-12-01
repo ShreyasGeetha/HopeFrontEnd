@@ -32,7 +32,7 @@ const UserProfile = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await dispatch(getUserDetails('profile'))
-      console.log('status of res', res)
+      console.log('status of res userProfile', res)
     }
     getData();
   },[])
