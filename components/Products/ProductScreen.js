@@ -46,7 +46,7 @@ const ProductScreen = ({productId}) => {
     }
     getProductDetails()
   
-  },[productId,userLogin])
+  },[productId,userLogin,dispatch])
 
   const showSignUpForm = async (e) => {
     e.preventDefault()
