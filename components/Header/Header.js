@@ -26,7 +26,7 @@ const Header = () => {
     
     const getData = async () => {
       const res = await dispatch(getUserDetails('profile'))
-      console.log('status of res header', res)
+      
     }
 
 

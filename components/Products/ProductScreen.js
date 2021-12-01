@@ -35,7 +35,7 @@ const ProductScreen = ({productId}) => {
   
   useEffect(() => {
     const getProductDetails = async () => {
-      // console.log('print the value 1', currentProduct._id)
+       console.log('print the value 1', currentProduct._id)
       console.log('params', router.query, 'productId value as well', productId)
       if (productId!=='undefined') {
           await dispatch(listProductDetails(productId))

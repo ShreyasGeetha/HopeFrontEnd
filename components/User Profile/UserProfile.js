@@ -18,6 +18,7 @@ import UserImageLg from './UserImageLg'
 import { useDispatch } from 'react-redux'
 import { getUserDetails } from '../../redux/actions/userActions'
 import UserNameFormProfile from '../Forms/UserNameForm/UserNameFormProfile'
+import UserInfoUpdateSuccessModal from './UserInfoUpdateSuccessModal'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -32,7 +33,7 @@ const UserProfile = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await dispatch(getUserDetails('profile'))
-      console.log('status of res userProfile', res)
+      
     }
     getData();
   },[])
@@ -112,6 +113,7 @@ const UserProfile = () => {
                 {/* Privacy section */}
                <SaveCancelButton />
               </form>
+              <UserInfoUpdateSuccessModal />
             </div>
           </div>
         </div>

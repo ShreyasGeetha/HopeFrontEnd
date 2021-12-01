@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { invalidUserNamePasswordError, showEmailError, showPasswordError } from '../../../redux/actions/FormActions';
 import { exitLoginForm } from '../../../redux/actions/ShowLoginFormAction';
 import { login } from '../../../redux/actions/userActions';
+import Router, { useRouter } from 'next/router';
 
 const SignInButton = () => {
 
@@ -9,6 +10,7 @@ const SignInButton = () => {
   const password = useSelector(state => state.password);
   const userLogin = useSelector(state => state.userLogin)
   const shouldShowLoginForm = useSelector(state => state.shouldShowLoginForm);
+  const router = useRouter()
 
   const dispatch = useDispatch();
 
@@ -23,7 +25,8 @@ const SignInButton = () => {
             console.log('The error message is', userLogin.error)
             await dispatch(invalidUserNamePasswordError())
           } else {
-            await dispatch(exitLoginForm(!shouldShowLoginForm))            
+            await dispatch(exitLoginForm(!shouldShowLoginForm))
+            router.push('/')
           }                    
         }  
       } else {
