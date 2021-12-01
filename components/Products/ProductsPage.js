@@ -13,6 +13,7 @@
 
 import axios from 'axios';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { listProducts } from '../../redux/actions/productActions';
@@ -23,6 +24,7 @@ import CategoryFilterLoading from '../CategoryFilter/CategoryFilterLoading';
 const ProductsPage = () => {
 
   const dispatch = useDispatch()
+  const router = useRouter()
   const productList = useSelector((state) => state.productList)
   const { loading, error, products } = productList
 //https://hope-product-profile-images.s3.ap-southeast-1.amazonaws.com/69e3b726f849282112eefff743f08e9e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXG637FINWILBG5OP%2F20211125%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20211125T211211Z&X-Amz-Expires=60&X-Amz-Signature=acd9830a5c946e2aaa9e860a5edf22d649f4fcdad350d04235064adf563175ae&X-Amz-SignedHeaders=host
@@ -36,6 +38,10 @@ const ProductsPage = () => {
     
   },[dispatch])
   
+  const gotoProductScreen = (id) => {
+    router.push(`/product/${id}`)
+    console.log('Hello', id)
+  }
 
   return (
     <div className="bg-white">
@@ -46,47 +52,46 @@ const ProductsPage = () => {
           : (                
             <div className="max-w-4xl mx-auto py-1 px-4 sm:py-1 sm:px-6 lg:max-w-7xl lg:px-8">
               {/* {console.log('what product details are we getting', products)} */}
-        <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-9">
-          {products.map((product) => (
-             product.isVisible && <div key={product._id} className="group relative">
-              <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 md:h-80  sm:h-80 lg:aspect-none">
-                <Link href={`/product/${product._id}`}>
-                  <a>
-                    <img
-                    src={product.imageSrc}
-                    alt={product.imageAlt}
-                    className="w-full h-full sm:w-50 sm:h-50 object-center object-cover lg:w-full lg:h-full"
-                    />    
-                    </a>
-                </Link>              
-              </div>
-              
-              <div className="mt-4 flex justify-between">
-                <div>
-                  <h3 className="text-sm text-gray-500">
-                    <Link href={`/product/${product._id}`}><a>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.name}
-                    </a></Link>
-                  </h3>
-                  <Link href={`/product/${product._id}`}><a><p className="mt-1 text-sm text-gray-500">{product.color}</p></a></Link>
-                </div>
-                
-                <div>
-                  <h3 className="text-sm text-gray-700">
-                    <Link href={`/product/${product._id}`}><a>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.sex}
-                    </a></Link>
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.size}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>      
-      </div>  
-      )}
+              {/* <a 
+              onClick={gotoProductScreen}>
+              <img src="https://i.ibb.co/8KQsD0v/Blue-Jean-Shirt.jpg" alt="" />
+              </a> */}
+              <div className="mt-6 cursor-pointer grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-9">
+                {products.map((product) => (
+                  product.isVisible &&
+                  <div key={product._id}
+                      onClick={()=>gotoProductScreen(product._id)}
+                      className="group relative">
+                    <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 md:h-80  sm:h-80 lg:aspect-none">
+                          <img
+                          src={product.imageSrc}
+                          alt={product.imageAlt}
+                          className="w-full h-full sm:w-50 sm:h-50 object-center object-cover lg:w-full lg:h-full"
+                          />                                    
+                    </div>
+                    
+                    <div className="mt-4 flex justify-between">
+                      <div>
+                        <h3 className="text-sm text-gray-500">
+                            <span aria-hidden="true" className="absolute inset-0" />
+                            {product.name}
+                        </h3>
+                        <Link href={`/product/${product._id}`}><a><p className="mt-1 text-sm text-gray-500">{product.color}</p></a></Link>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-sm text-gray-700">
+                            <span aria-hidden="true" className="absolute inset-0" />
+                            {product.sex}
+                        </h3>
+                        <p className="mt-1 text-sm text-gray-500">{product.size}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>      
+            </div>  
+            )}
       
     </div>
   )

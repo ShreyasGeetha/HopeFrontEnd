@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import ProductScreen from '../../components/Products/ProductScreen';
 
 const ProductDetail = () => {
@@ -6,7 +7,7 @@ const ProductDetail = () => {
   //From products page you click on a image.. that href with id to a page.. from url 
   //you get the id and make query to backend using id
   const productId = router.query.productId;
-  console.log('the product id is ',productId)
+ 
   return (
     <div>
       <ProductScreen productId={`${productId}`}/>

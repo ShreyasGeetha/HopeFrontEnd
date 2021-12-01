@@ -212,6 +212,9 @@ const initialState = {
   },
   productUploadSuccess: {
     success: false
+  },
+  productDetails: {
+    loading: true
   }
 }
 

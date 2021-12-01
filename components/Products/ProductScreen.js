@@ -35,14 +35,20 @@ const ProductScreen = ({productId}) => {
   
   useEffect(() => {
     const getProductDetails = async () => {
-       console.log('print the value 1', currentProduct._id)     
-      if (productId == 'undefined') {
-         console.log('print the value', currentProduct._id)
-        productId = currentProduct._id
-       await dispatch(listProductDetails(productId))
-      } else {
-        await dispatch(listProductDetails(productId))
+      // console.log('print the value 1', currentProduct._id)
+      console.log('params', router.query, 'productId value as well', productId)
+      if (productId!=='undefined') {
+          await dispatch(listProductDetails(productId))
       }
+      // if (productId == 'undefined') {
+      //   //  console.log('print the value OF entered product id', currentProduct._id)
+      //   productId = currentProduct._id
+      //   const res = await dispatch(listProductDetails(productId))
+      //   console.log('response from server', res)
+      // } else {
+      //   console.log('at refresh does else part gets triggered?',productId)
+      //   await dispatch(listProductDetails(productId))
+      // }
     }
     getProductDetails()
   
@@ -58,7 +64,7 @@ const ProductScreen = ({productId}) => {
       <div className="pt-6 pb-16 sm:pb-24">
         
         <div className="mt-8 max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div className="lg:grid lg:grid-cols-12 lg:auto-rows-min lg:gap-x-8">
+         {!(productDetails.loading) && <div className="lg:grid lg:grid-cols-12 lg:auto-rows-min lg:gap-x-8">
             <div className="lg:col-start-8 lg:col-span-5">
               <div className="flex justify-between">
                 <h1 className="text-xl font-medium text-gray-900">{product.name}</h1>
@@ -167,7 +173,7 @@ const ProductScreen = ({productId}) => {
               </div>
               </div>  
             </div>           
-          </div>
+          </div>}
         </div>
       </div>
     </div>
