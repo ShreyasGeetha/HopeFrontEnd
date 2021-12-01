@@ -43,20 +43,20 @@ const Header = () => {
   
   
   return (
-    <>
+    <div className="">
       {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
       <Popover
         as="header"
         className={({ isopen }) =>
           classNames(
             isopen ? 'fixed inset-0 z-40 overflow-y-auto' : '',
-            'bg-header shadow-sm lg:static lg:overflow-y-visible'
+            'bg-header  shadow-sm lg:static lg:overflow-y-visible'
           )
         }
       >
         {({ isopen }) => (
           <>
-            <div className="bg-green-700 ">
+            <div className="bg-green-700  ">
               <div className="max-w-7xl mx-auto">
               <div className=" max-w-8xl h-7  
                 lg:divide-y lg:divide-gray-700
@@ -65,23 +65,24 @@ const Header = () => {
               md:grid-cols-6 md:gap-2 md:h-10 
               lg:grid-cols-10 lg:gap-2 lg:h-10 
               xl:grid-cols-12 xl:gap-3 xl:h-10 xl:ml-4">
-                <Link href="">
-                <a className="col-start-1 col-span-2 flex gap-x-2 ml-4">                  
-                    <div className=" text-white mt-1.5
+                <Link href="/contactus">
+                <a className="col-start-1 col-span-2 flex gap-x-2 ml-4 group">                  
+                    <div className=" text-white mt-1.5 group-hover:text-gray-300
                           xl:mt-1.5">
                       <svg 
                         className="h-4 w-4
                                   xl:h-6 xl:w-6
                                   md:h-6 md:w-6
-                                  sm:h-5 sm:w-5 sm:mt-1
+                                  sm:h-5 sm:w-5 sm:mt-0.5 
                                   " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>                    
                     </div>
-                    <div className="text-white text-sm mt-1
-                         xl:mt-0.5 xl:font-normal xl:text-lg
-                         md:mt-0.5 md:font-normal md:text-lg
-                         lg:mt-0.5 lg:font-normal lg:text-lg
+                      <div className=" group-hover:text-gray-300
+                       text-white text-sm mt-1
+                         xl:mt-1.5 xl:font-normal xl:text-xl
+                         md:mt-1.5 md:font-normal md:text-xl
+                         lg:mt-1.5 lg:font-normal lg:text-xl
                          sm:mt-0.5 sm:font-normal sm:text-lg
                          sm:py-0
                           ">
@@ -90,13 +91,13 @@ const Header = () => {
                  </a>
                  </Link>
                 
-                <Link href="">
+                <Link href="/aboutus">
                   <a className="col-start-4 gap-x-2 
                                 lg:col-start-9 lg:ml-16 lg:-mr-12
                                 md:ml-19 md:-mr-14
                                 sm:col-start-5
                                 xl:col-start-11 xl:ml-11 xl:-mr-7">
-                   <div className=" flex flex-row-reverse text-white text-sm mt-1 
+                   <div className=" flex flex-row-reverse hover:text-gray-300 text-white text-sm mt-1 
                          xl:mt-0.5 xl:font-normal xl:text-lg
                          md:mt-0.5 md:font-normal md:text-lg md:flex-row-reverse
                          lg:mt-0.5 lg:font-normal lg:text-lg lg:flex-row
@@ -107,11 +108,11 @@ const Header = () => {
                   </a>
                 </Link>
 
-                <Link href="">
+                <Link href="/faq">
                   <a className="col-start-6 gap-x-2
                                 lg:col-start-10 lg:mx-14
                                 xl:col-start-12 xl:mx-16">
-                   <div className="flex flex-row-reverse text-white text-sm mt-1
+                   <div className="flex flex-row-reverse hover:text-gray-300 text-white text-sm mt-1
                          xl:mt-0.5 xl:font-normal xl:text-lg xl:flex-row-reverse
                          md:mt-0.5 md:font-normal md:text-lg  md:mr-1
                          lg:mt-0.5 lg:font-normal lg:text-lg lg:flex-row
@@ -143,29 +144,7 @@ const Header = () => {
                     </Link>
                   </div>
                 </div>
-                {/* <div className=" flex-1 md:px-8 lg:px-0 xl:col-span-3">
-                  <div className="flex items-center px-6 py-4 md:max-w-3xl md:mx-auto lg:max-w-none lg:mx-0 xl:px-0">
-                    <div className="w-full">
-                      <label htmlFor="search" className="sr-only">
-                        Search
-                      </label>
-                      <div className="relative">
-                        <div className="flex-row-reverse pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
-                          <SearchIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                        </div>
-                        <div>
-                          <input
-                            id="search"
-                            name="search"
-                            className="block w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            placeholder="Search"
-                            type="search"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
+                
                 <div className="flex items-center md:absolute md:right-0 md:inset-y-0 lg:hidden">
                   {/* Mobile menu button */}
                   <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-50 hover:bg-gray-100 hover:text-header focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-50">
@@ -382,7 +361,7 @@ const Header = () => {
           </>
         )}
       </Popover>
-    </>
+    </div>
   );
 }
 
