@@ -134,9 +134,9 @@ const Header = () => {
 
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 sm:py-3 xl:py-1 lg:px-8">
-              <div className="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
-                <div className="flex md:static md:left-0 md:inset-y-0  lg:static xl:col-span-2">
-                  <div className="flex-shrink-0 cursor-pointer flex flex-wrap items-center">
+              <div className="relative   flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
+                <div className="flex cursor-pointer md:static md:left-0 md:inset-y-0  lg:static xl:col-span-2">
+                  <div className="flex-shrink-0 flex flex-wrap items-center">
                     <Link href="/">
                       <a>
                         <img
@@ -148,8 +148,15 @@ const Header = () => {
                     </Link>
                   </div>
                 </div>
+
+                 <div className="hidden md:mt-2 md:flex md:max-w-7xl lg:col-start-4 lg:col-span-4 items-center">
+                    
+                    {/* Search Bar */}
+                    <Search />
+                  </div>
                 
-                <div className="flex items-center md:absolute md:right-0 md:inset-y-0 lg:hidden">
+                <div className="flex items-center md:absolute md:right-0 md:inset-y-0 
+                  md:hidden lg:hidden">
                   {/* Mobile menu button */}
                   <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-50 hover:bg-gray-100 hover:text-header focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-50">
                     <span className="sr-only">Open menu</span>
@@ -160,12 +167,8 @@ const Header = () => {
                     )}
                   </Popover.Button>
                 </div>
-                <div className="hidden md:flex md:items-center md:justify-end xl:col-span-5 xl:col-start-8">
-                  <div className="relative z-0 flex-1 px-2 flex items-center justify-center sm:absolute sm:inset-0">
-                    
-                    {/* Search Bar */}
-                    <Search />
-                  </div>
+                
+                <div className="hidden md:flex md:items-center md:justify-end xl:col-span-5 xl:col-start-8">                 
                   {!userLogged && <Login />}
                   {!userLogged && <Signup />}
                   {userLogged && <div className="group">
@@ -174,10 +177,10 @@ const Header = () => {
                         <button
                           
                           className="bg-grey-light rounded-lg group-hover:bg-gray-50 font-bold py-2 px-4  inline-flex items-center" >
-                          <svg className="h-7 w-7 group-hover:bg-gray-50 group-hover:text-header bg-header text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="h-7 w-7 md:h-8 md:w-8 group-hover:bg-gray-50 group-hover:text-header md:bg-header text-white " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                           </svg>
-                          <span className="group-hover:text-header text-white ml-1">My Orders</span>
+                          <span className="hidden lg:block group-hover:text-header lg:text-white ml-1">My Orders</span>
                         </button>
                       </a>
                     </Link>

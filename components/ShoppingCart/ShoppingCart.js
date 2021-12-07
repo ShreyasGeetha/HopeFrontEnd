@@ -48,7 +48,7 @@ const ShoppingCart = () => {
     <div className="bg-white">
       {console.log('query',productId)}
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-0">
-        {!cart.loading && <Loader />}
+        {/* {!cart.loading && <Loader />} */}
         {!cart.isCartEmpty && <h1 className="text-3xl font-extrabold text-center tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>}
 
         

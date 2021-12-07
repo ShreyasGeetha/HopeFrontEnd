@@ -10,7 +10,7 @@ const ProductSearchScreen = () => {
   return (
     <div className="bg-white mx-auto my-auto">
       {(products.length === 0) && <div className=" max-w-7xl mx-auto mt-2 px-2
-                      sm:px-6 md:px-8 ">
+                      sm:px-6 md:px-8 md:my-16 lg:my-20 ">
         <p className="font-semibold text-lg font-sans 
                       md:text-xl lg:text-2xl">
           No products found for {" "}

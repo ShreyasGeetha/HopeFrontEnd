@@ -37,8 +37,8 @@ const Search = () => {
   const [keyword, setKeyword] = useState('')
 
   return (
-    <div>
-      <div className="w-full px-0.5 sm:max-w-xs sm:mx-auto md:pr-6">
+    <>
+      <div className="w-full px-0.5 sm:max-w-xs sm:mx-auto ">
         <label htmlFor="search" className="sr-only">
           Search
         </label>
@@ -57,7 +57,7 @@ const Search = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
