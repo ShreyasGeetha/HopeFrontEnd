@@ -220,7 +220,8 @@ const initialState = {
   productDetails: {
     loading: true
   },
-  productSearch : ''
+  productSearch: '',
+  productList: {loading:true}
 }
 
 const middleware = [thunk]
