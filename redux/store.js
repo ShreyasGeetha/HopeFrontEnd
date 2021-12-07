@@ -221,7 +221,7 @@ const initialState = {
     loading: true
   },
   productSearch: '',
-  productList: {loading:true}
+  productList: {loading:true, products: []}
 }
 
 const middleware = [thunk]
