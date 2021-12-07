@@ -26,7 +26,7 @@ const ProductsLoadingPage = () => {
   useEffect(() => {
     const getProducts = async () => {
        
-      await dispatch(listProducts());
+      //await dispatch(listProducts());
     }
     getProducts();  
   },[dispatch])

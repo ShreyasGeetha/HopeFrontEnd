@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import EmailForm from "../../Forms/EmailForm/EmailForm";
 import CancelButton from "./ProductForms/CancelButton";
+import Map from "./ProductForms/Maps/Map";
 import ProductBrand from "./ProductForms/ProductBrand";
 import ProductCategory from "./ProductForms/ProductCategory";
 import ProductColor from "./ProductForms/ProductColor";
@@ -54,6 +55,7 @@ const ProductUploadScreen = () => {
 
                 <ProductDescription />
                 <ProductDropLocation />
+                <Map />
 
             
             <ProductPhoto />

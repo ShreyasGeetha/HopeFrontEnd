@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL, PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS, PRODUCT_LIST_FAIL, PRODUCT_DELETE_FAIL, PRODUCT_DELETE_SUCCESS, PRODUCT_DELETE_REQUEST, PRODUCT_CREATE_REQUEST, PRODUCT_CREATE_SUCCESS } from '../types/productTypes';
+import { PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL, PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS, PRODUCT_LIST_FAIL, PRODUCT_DELETE_FAIL, PRODUCT_DELETE_SUCCESS, PRODUCT_DELETE_REQUEST, PRODUCT_CREATE_REQUEST, PRODUCT_CREATE_SUCCESS, SET_PRODUCT_SEARCH } from '../types/productTypes';
 
 //action creators
-export const listProducts = () => async (dispatch, getState) =>{
+export const listProducts = (keyword = '') => async (dispatch, getState) =>{
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST })
     
-    const { data } = await axios.get('/api/products')
+    const { data } = await axios.get(`/api/products?keyword=${keyword}`)
 
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
@@ -127,5 +127,17 @@ export const createProduct = () => async (dispatch, getState) =>{
         ? error.response.data.message
         : error.response
     })
+  }
+}
+
+export const setProductSearchValue = (search) => (dispatch) => {
+  try {
+    dispatch({
+      type: SET_PRODUCT_SEARCH,
+      payload: search
+    })
+    
+  } catch (error) {
+    
   }
 }

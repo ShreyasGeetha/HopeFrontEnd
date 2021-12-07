@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM, CART_DELETE_ITEM } from "../types/cartTypes";
+import { CART_ADD_ITEM, CART_ADD_ITEM_REQUEST, CART_DELETE_ITEM } from "../types/cartTypes";
 import axios from 'axios';
 
 export const addToCart = (id) => async (dispatch, getState) =>{
@@ -13,7 +13,9 @@ export const addToCart = (id) => async (dispatch, getState) =>{
           selectedSize = size.name
         }
       })
-      
+
+     
+      console.log('DO WE COME HERE')
       dispatch({
         type: CART_ADD_ITEM,
         payload: {

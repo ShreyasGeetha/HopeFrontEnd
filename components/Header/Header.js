@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from 'react'
 import { Menu, Popover, Transition } from '@headlessui/react'
-import { SearchIcon } from '@heroicons/react/solid'
+
 import { BellIcon, MenuIcon, ShoppingCartIcon, XIcon } from '@heroicons/react/outline'
 import Link from 'next/link';
 import Login from '../Forms/Login/LoginButton';
@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearEmail, clearPassword, clearUserName, getUserDetails, logout } from '../../redux/actions/userActions';
 import { clear400Errors } from '../../redux/actions/FormActions';
 import { listMyOrders } from '../../redux/actions/orderActions';
+import Search from './Search';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -18,6 +19,7 @@ const Header = () => {
   const userLogin =  useSelector(state => state.userLogin)
   const cart = useSelector(state => state.cart);
   const userLogged = useSelector(state => state.userLogged);
+  const productSearch = useSelector(state => state.productSearch)
   const {cartItems} = cart
   var { userInfo } = userLogin
   const dispatch = useDispatch()
@@ -39,6 +41,8 @@ const Header = () => {
     await dispatch(clearPassword(''))    
     await dispatch(logout())    
   }
+
+  
 
   
   
@@ -132,14 +136,14 @@ const Header = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 sm:py-3 xl:py-1 lg:px-8">
               <div className="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
                 <div className="flex md:static md:left-0 md:inset-y-0  lg:static xl:col-span-2">
-                  <div className="flex-shrink-0 flex flex-wrap items-center">
+                  <div className="flex-shrink-0 cursor-pointer flex flex-wrap items-center">
                     <Link href="/">
                       <a>
                         <img
-                          className="block h-10 w-auto text-white"
+                          className="block  h-10 w-auto text-white"
                           src="/Header/images/logo1.svg"
                         />
-                        {/* <img className="block object-cover h-9 w-full " src="/Header/images/LogoWithTitle.png" /> */}
+                      
                       </a>
                     </Link>
                   </div>
@@ -157,7 +161,11 @@ const Header = () => {
                   </Popover.Button>
                 </div>
                 <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-5 xl:col-start-8">
-                  
+                  <div className="relative z-0 flex-1 px-2 flex items-center justify-center sm:absolute sm:inset-0">
+                    
+                    {/* Search Bar */}
+                    <Search />
+                  </div>
                   {!userLogged && <Login />}
                   {!userLogged && <Signup />}
                   {userLogged && <div className="group">
@@ -186,7 +194,7 @@ const Header = () => {
                         <span className="absolute  inset-0 object-right-top -mr-7 -mr-1 -mt-1">
                           <div className="inline-flex group-hover:text-header
                             items-center   rounded-full  text-sm font-semibold leading-4  text-white">
-                            {cartItems.length}
+                            {!(cart.loading) && cartItems.length}
                           </div>
                         </span>
                       </button>
@@ -335,7 +343,7 @@ const Header = () => {
                           <span className="absolute  inset-0 object-right-top -mr-7 -mr-1 -mt-2">
                             <div className="inline-flex group-hover:text-header
                               items-center   rounded-full  text-sm font-semibold leading-4  text-white">
-                              {cartItems.length}
+                              {!(cart.loading) && cartItems.length}
                             </div>
                           </span>
                         </button>
@@ -349,7 +357,7 @@ const Header = () => {
                     <a>
                       <button className="bg-grey-light rounded-lg group-hover:bg-gray-50 font-bold py-2 px-4  inline-flex items-center">
                         <svg className="h-7 w-7 group-hover:bg-gray-50 group-hover:text-header bg-header text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLlinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                         </svg>
                         <span className="group-hover:text-header text-white ml-1">My Orders</span>
                       </button>

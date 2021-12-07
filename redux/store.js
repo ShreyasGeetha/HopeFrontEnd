@@ -2,7 +2,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { productCreateReducer, productDeleteReducer, productListReducer } from './reducers/products/productReducer'
+import { productCreateReducer, productDeleteReducer, productListReducer, productSearchReducer } from './reducers/products/productReducer'
 import { currentProductDetailsReducer, productDetailsReducer } from './reducers/products/productDetailsReducer'
 import {cartReducer } from './reducers/cart/cartReducer'
 import { showLoginFormReducer, showSignupFormReducer } from './reducers/cart/showLoginFormReducer';
@@ -72,7 +72,8 @@ const reducer = combineReducers({
   productImageAltError: productImageAltErrorReducer,
   productPickupTimeError: productPickupTimeErrorReducer,
   productSizeError: productSizeErrorReducer,
-  productUploadSuccess: setProductUploadSuccessReducer
+  productUploadSuccess: setProductUploadSuccessReducer,
+  productSearch: productSearchReducer
 })
 
 const cartItemsFromStorage = [{}]
@@ -132,7 +133,9 @@ if (typeof window !== 'undefined') {
 }
 
 const initialState = {
-  cart: { cartItems: cartItemsFromStorage },
+  cart: {    
+    cartItems: cartItemsFromStorage
+  },
   shouldShowLoginForm: false,
   shouldShowSignupForm: false,
   userLogin: {
@@ -207,6 +210,7 @@ const initialState = {
     success: false
   },
   cart: {
+    loading: true,
     isCartEmpty: true,
     cartItems: []
   },
@@ -215,7 +219,8 @@ const initialState = {
   },
   productDetails: {
     loading: true
-  }
+  },
+  productSearch : ''
 }
 
 const middleware = [thunk]

@@ -26,16 +26,19 @@ const ProductsPage = () => {
   const dispatch = useDispatch()
   const router = useRouter()
   const productList = useSelector((state) => state.productList)
+  const productSearch = useSelector(state => state.productSearch)
+  
   const { loading, error, products } = productList
 //https://hope-product-profile-images.s3.ap-southeast-1.amazonaws.com/69e3b726f849282112eefff743f08e9e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXG637FINWILBG5OP%2F20211125%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20211125T211211Z&X-Amz-Expires=60&X-Amz-Signature=acd9830a5c946e2aaa9e860a5edf22d649f4fcdad350d04235064adf563175ae&X-Amz-SignedHeaders=host
   useEffect(() => {
     const getProducts = async () => {
+    console.log('2')
        
-     await dispatch(listProducts());
+     await dispatch(listProducts(productSearch));
       
     }
     getProducts();
-    
+    console.log('1')
   },[dispatch])
   
   const gotoProductScreen = (id) => {

@@ -17,6 +17,14 @@ module.exports = {
           450: "#5F99F7",
         }
       },
+      margin: {
+        '-98': '-28rem',
+        '-97': '-27rem',
+      },
+      height: {
+        '98': '28rem',
+        '97': '27rem'
+      },
       keyframes: {
         'fade-in-down': {
             '0%': {

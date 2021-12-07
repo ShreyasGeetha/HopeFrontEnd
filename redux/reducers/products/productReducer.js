@@ -3,7 +3,7 @@ import {
   PRODUCT_LIST_FAIL, PRODUCT_DELETE_REQUEST,
   PRODUCT_DELETE_SUCCESS, PRODUCT_DELETE_FAIL,
   PRODUCT_CREATE_REQUEST, PRODUCT_CREATE_SUCCESS,
-  PRODUCT_CREATE_FAIL, PRODUCT_CREATE_RESET
+  PRODUCT_CREATE_FAIL, PRODUCT_CREATE_RESET, SET_PRODUCT_SEARCH
 } from '../../types/productTypes';
 
 export const productListReducer = (state = { products: [] }, action) => {
@@ -47,6 +47,18 @@ export const productCreateReducer = (state = {}, action) => {
       return { loading: false, error: action.payload }
     case PRODUCT_CREATE_RESET:
       return { }
+    default:
+      return state
+  }
+}
+
+export const productSearchReducer = (state = {}, action) => {
+ 
+  switch (action.type) {
+    
+    case SET_PRODUCT_SEARCH:
+      return action.payload
+    
     default:
       return state
   }
