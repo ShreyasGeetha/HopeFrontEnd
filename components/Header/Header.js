@@ -160,7 +160,7 @@ const Header = () => {
                     )}
                   </Popover.Button>
                 </div>
-                <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-5 xl:col-start-8">
+                <div className="hidden md:flex md:items-center md:justify-end xl:col-span-5 xl:col-start-8">
                   <div className="relative z-0 flex-1 px-2 flex items-center justify-center sm:absolute sm:inset-0">
                     
                     {/* Search Bar */}
@@ -233,6 +233,7 @@ const Header = () => {
                             </a>
                           </Link>
                         </div>
+                        
                         <div className="hover:bg-gray-100 group border-2 bg-header">
                           <Link href="/product/ProductUpload">
                             <a>
@@ -272,7 +273,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-
+                      
             <Popover.Panel as="nav" className="lg:hidden bg-red-100555555 border-1" aria-label="Global">
               {!userLogged &&
                 <div className="border-t flex flex-col border-gray-200 pt-4 pb-3">
@@ -292,6 +293,10 @@ const Header = () => {
                       <div className="text-base font-medium text-gray-50">{userInfo.name}</div>
                       <div className="text-sm font-medium text-gray-50">{userInfo.email}</div>
                     </div>                  
+                </div>
+                {/* Search Bar */}
+                <div className="hover:bg-gray-100 group border-2">
+                  <Search />
                 </div>
                 <div className="hover:bg-gray-100 group border-2">
                   <Link href="/userprofile/UserProfile">
