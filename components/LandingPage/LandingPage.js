@@ -7,17 +7,17 @@ const LandingPage = () => {
   return (
     <div>
       <div className="bg-LandingPageBackground h-full mx-auto max-w-7xl ">
-        <div class="relative h-96 lg:h-98 mx-auto max-w-7xl overflow-hidden">
+        <div className="relative h-96 lg:h-98 mx-auto max-w-7xl overflow-hidden">
           <img src="https://scx2.b-cdn.net/gfx/news/2021/piles-of-used-clothes.jpg" alt="Avatar" className="object-cover mt-1 w-full h-full " />
           {/* Text on image */}
-          <div class="absolute w-full  top-0 inset-y-0  text-white text-3xl md:text-5xl lg:text;7xl
+          <div className="absolute w-full  top-0 inset-y-0  text-white text-3xl md:text-5xl lg:text;7xl
           mt-7 md:mt-4 lg:mt-6
           font-sans font-bold text-center leading-40
           backdrop-filter backdrop-blur-sm
           backdrop-opacity-30 ">
             Let's not waste our wonderful world
           </div>
-          <div class="absolute w-full  top-0 inset-y-0  text-white text-3xl md:text-4xl lg:text;7xl
+          <div className="absolute w-full  top-0 inset-y-0  text-white text-3xl md:text-4xl lg:text;7xl
           mt-36 uppercase md:mt-40 lg:mt-48
           font-sans font-bold text-center leading-40
           backdrop-filter backdrop-blur-sm

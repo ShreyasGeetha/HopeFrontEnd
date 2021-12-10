@@ -15,7 +15,7 @@ const HowToShare = () => {
         {/* Steps */}
 
         {howToShare.map(value => (
-          <div className="grid grid-cols-10 mt-8 ml-4">
+          <div key={value.number} className="grid grid-cols-10 mt-8 ml-4">
           <div className="place-self-start py-4 
           px-6
           rounded-full
