@@ -15,7 +15,7 @@ const LandingPage = () => {
           font-sans font-bold text-center leading-40
           backdrop-filter backdrop-blur-sm
           backdrop-opacity-30 ">
-            Let's not waste our wonderful world
+            Let&apos;s not waste our wonderful world
           </div>
           <div className="absolute w-full  top-0 inset-y-0  text-white text-3xl md:text-4xl lg:text;7xl
           mt-36 uppercase md:mt-40 lg:mt-48
