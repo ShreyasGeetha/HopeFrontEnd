@@ -2,13 +2,16 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    
+    fontFamily: {
+      'middleSectionFont':['cerebri-sans-bold']
+    },
     extend: {
       colors: {
         header: '#009900',
         headerComplimentary: '#E02D87s',
         primary: "#ff4800",
         login: '#fee500',
+        LandingPageBackground: '#008E85',
         focus: "#2B802B",
         twitter: "#1DA1F2",
         saffron: "#FF9933",

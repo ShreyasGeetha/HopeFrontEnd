@@ -55,7 +55,7 @@ const ProductUploadScreen = () => {
 
                 <ProductDescription />
                 <ProductDropLocation />
-                <Map />
+                {/* <Map /> */}
 
             
             <ProductPhoto />
