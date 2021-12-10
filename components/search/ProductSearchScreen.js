@@ -20,7 +20,7 @@ const ProductSearchScreen = () => {
           </span>
         </p>
         <div className="mt-10 mb-10">
-          <Link href="/">
+          <Link href="/products">
             <a>
               <button
                 type="submit"                    

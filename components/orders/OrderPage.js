@@ -84,7 +84,7 @@ const OrderPage = () => {
                 </div>
               </div>
             ))}
-           <Link href="/">
+           <Link href="/products">
               <a>
                 <button
                   type="submit"                    

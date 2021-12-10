@@ -265,14 +265,16 @@ const Header = () => {
                     </Transition>
                   </Menu>}
                   
-                  {(userLogged ? userInfo.isAdmin : false) && <Link href="/admin">
-                    <a
-                      
-                      className="ml-6 inline-flex items-center px-4 py-2 border-2 font-sans tracking-wider text-sm font-medium rounded-md shadow-sm text-white bg-headerComplimentary hover:bg-white hover:text-header focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-header"
-                    >
-                      Admin Screen
-                    </a>
-                  </Link>}
+                  {(userLogged ? userInfo.isAdmin : false) &&
+                    <Link href="/admin">
+                      <a
+                        
+                        className="ml-6 inline-flex items-center px-4 py-2 border-2 font-sans tracking-wider text-sm font-medium rounded-md shadow-sm text-white bg-headerComplimentary hover:bg-white hover:text-header focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-header"
+                      >
+                        Admin Screen
+                      </a>
+                     </Link>
+                  }
                 </div>
               </div>
             </div>
@@ -322,7 +324,21 @@ const Header = () => {
                     </button>
                   </a>
                   </Link>
-                </div> 
+                </div>
+                
+                <div>
+                  {(userLogged ? userInfo.isAdmin : false) &&
+                    <Link href="/admin">
+                    <a>
+                    <button
+                      type="button"                          
+                    className="block py-2 px-4 text-sm text-gray-50 group-hover:text-header">
+                      Admin Screen
+                    </button>
+                  </a>
+                  </Link>
+                  }
+                </div>
                   
                   <div className="hover:bg-gray-100 group border-2">
                   <Link href="/">

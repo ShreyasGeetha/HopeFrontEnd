@@ -53,7 +53,7 @@ const MyOrders = () => {
           <p className="mt-2 text-sm text-gray-500">            
           </p>
         </div>}
-        {!(orderListMy.success) && !loading && <Link href="/">
+        {!(orderListMy.success) && !loading && <Link href="/products">
           <a>
             <button
               type="submit"                    

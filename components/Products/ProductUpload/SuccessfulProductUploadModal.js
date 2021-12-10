@@ -11,7 +11,7 @@ const SuccessfulProductUploadModal = () => {
 
   const gotoMainPage = async() => {
     await dispatch(setProductUploadSuccess(false))
-    router.push("/")
+    router.push("/products")
   }
 
   const uploadMoreProducts = async () => {

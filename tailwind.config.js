@@ -3,7 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      'middleSectionFont':['cerebri-sans-bold']
+      'landingPageFontBold': ['cerebri-sans'],
+      'landingPageFont': ['cerebri-sans'],
+      'notificationFont': ['sans-serif']
     },
     extend: {
       colors: {
@@ -11,6 +13,10 @@ module.exports = {
         headerComplimentary: '#E02D87s',
         primary: "#ff4800",
         login: '#fee500',
+        alertFontColor: '#2b2b2b',
+        numberColor: '#bb4291',
+        numberCaption: '#808080',
+        alertBg: '#ffcc4e',
         LandingPageBackground: '#008E85',
         focus: "#2B802B",
         twitter: "#1DA1F2",

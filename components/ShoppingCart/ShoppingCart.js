@@ -132,7 +132,7 @@ const ShoppingCart = () => {
             {!cart.isCartEmpty && <div className="mt-6 text-sm text-center">
               <p>
                 or{' '}
-                <Link href="/">
+                <Link href="/products">
                   <a className="text-header font-medium hover:text-green-500">
                     Continue Shopping<span aria-hidden="true"> &rarr;</span>
                   </a>
