@@ -21,6 +21,7 @@ const Search = () => {
         await dispatch(setProductSearchValue(keyword))
         await dispatch(listProducts(keyword));
         router.push(`/search`)
+        await dispatch(setProductSearchValue(''))
       } else {
         console.log('even this?')
         await dispatch(setProductSearchValue(""))

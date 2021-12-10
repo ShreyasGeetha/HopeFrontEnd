@@ -13,7 +13,7 @@ const ProductSearchScreen = () => {
                       sm:px-6 md:px-8 md:my-16 lg:my-20 ">
         <p className="font-semibold text-lg font-sans 
                       md:text-xl lg:text-2xl">
-          No products found for {" "}
+          No products found 
           <span className="font-extrabold font-serif text-xl
                           md:text-2xl lg:text-3xl">
             {` ${productSearch}`}
@@ -39,6 +39,9 @@ const ProductSearchScreen = () => {
         onClick={gotoProductScreen}>
         <img src="https://i.ibb.co/8KQsD0v/Blue-Jean-Shirt.jpg" alt="" />
         </a> */}
+        <div className="my-2 font-landingPageFont font-bold tracking-wider text-2xl sm:text-3xl md:text-4xl">
+          The Clothing for your search
+        </div>
         <div className="mt-6 cursor-pointer grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-9">
           {products.map((product) => (
             product.isVisible &&
