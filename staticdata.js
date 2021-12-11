@@ -6,6 +6,6 @@ export const howToShare = [
 
 export const howToRequest = [
   { 'number': '1', 'heading': 'Browse listings', 'content': 'Look at all the products available, choose the one which you like the most.' },
-  { 'number': '2', 'heading': 'Request listing', 'content': 'Add to cart and place the order.' },
-  {'number': '3', 'heading': 'Happy sharing', 'content': 'Show up at the agreed place and time. Feel great knowing you’ve scored something free and saved it from landfill!'},
+  { 'number': '2', 'heading': 'Request listing of your favourite clothing', 'content': 'Add to cart, check the pickup location and place the order.' },
+  {'number': '3', 'heading': 'Happy sharing', 'content': 'Show up at the agreed place and time. Feel great knowing you’ve saved it from landfill!'},
 ]

@@ -5,19 +5,31 @@ const MakeADiffPage = () => {
   const [clothStartValue, setClothStartValue] = useState(25364)
   const [clothEndValue, setClothEndValue] = useState(25370)
 
-  const [startValue, setStartValue] = useState(1)
-  const [endValue, setEndValue] = useState(10)
-
-  // const [startValue, setStartValue] = useState(1)
-  // const [endValue, setEndValue] = useState(10)
+  const [userStartValue, setUserStartValue] = useState(14654)
+  const [userEndValue, setUserEndValue] = useState(14656)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer1 = setTimeout(() => {
       setClothStartValue(clothStartValue + 1)
       setClothEndValue(clothStartValue+1)
-  }, 3000);
-  return () => clearTimeout(timer);
-  },[clothStartValue])
+    }, 3000);
+  
+    return () => {
+      clearTimeout(timer1);
+  } 
+  }, [clothStartValue])
+  
+  useEffect(() => {
+    
+    const timer2 = setTimeout(() => {
+      setUserStartValue(userStartValue + 1)
+      setUserEndValue(userStartValue+1)
+  }, 5000);
+    return () => {
+      clearTimeout(timer2);
+  } 
+  }, [userStartValue])
+
 
   return (
      <div className="bg-gray-50 mx-auto max-w-7xl">
@@ -47,7 +59,18 @@ const MakeADiffPage = () => {
           </div>
           <div className="flex flex-col mt-10 sm:mt-0">
             <dt className="order-2 mt-2 text-lg leading-6 font-semibold font-landingPageFont text-numberCaption">Users</dt>
-            <dd className="order-1 text-5xl font-extrabold text-numberColor">14,654</dd>
+            <dd className="order-1 text-5xl font-extrabold text-numberColor">
+              <CountUp
+                start={userStartValue}
+                end={userEndValue}
+                duration={5} 
+                separator=","
+                decimals={0}
+                decimal=","  
+                onEnd={() => console.log('Ended! 👏')}
+                onStart={() => console.log('Started! 💨')}
+              />
+            </dd>
           </div>
           <div className="flex flex-col mt-10 sm:mt-0">
             <dt className="order-2 mt-2 text-lg leading-6 font-semibold font-landingPageFont text-numberCaption">Donors</dt>
