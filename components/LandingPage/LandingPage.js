@@ -20,7 +20,7 @@ const LandingPage = () => {
             
             <div className="grid grid-cols-2">
               <div className="place-self-end text-lg 
-                    sm:text-2xl md:text-3xl lg:text-4xl pl-2  bg-LandingPageBackground mix-blend-luminosity py-1">
+                    sm:text-2xl md:text-3xl lg:text-4xl pl-2  bg-LandingPageBackground  py-1">
                 <Typewriter className="text-alertBg"
                 onInit={(typewriter) => {
                   typewriter.typeString('Let\'s Not Waste')                    

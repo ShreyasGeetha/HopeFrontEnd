@@ -21,7 +21,7 @@ const StartShopping = () => {
            
             <a              
               onClick={gotoProdScreen}
-                className="inline-flex items-center justify-center px-5 py-3 border border-transparent font-landingPageFont tracking-wider
+                className=" cursor-pointer  inline-flex items-center justify-center px-5 py-3 border border-transparent font-landingPageFont tracking-wider
                 text-sm sm:text-lg md:text-xl
                font-medium rounded-md text-white bg-header hover:bg-indigo-700"
             >

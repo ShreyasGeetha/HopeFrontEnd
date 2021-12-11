@@ -1,7 +1,10 @@
 const { redirect } = require("next/dist/server/api-utils")
 
 module.exports = {
-  reactStrictMode: true,  
+  reactStrictMode: true,
+  images: {
+    domains: ["i.ibb.co", "hope-product-profile-images.s3.ap-southeast-1.amazonaws.com"]
+  },
   async rewrites() {
     return [
       {
