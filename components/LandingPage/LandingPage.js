@@ -2,6 +2,7 @@ import Covid19Alert from "./Covid19Alert";
 import HowToShare from "./HowToShare";
 import MakeADiffPage from "./MakeADiffPage";
 import MiddleSection from "./MiddleSection";
+import Typewriter from 'typewriter-effect';
 
 const LandingPage = () => {
   return (
@@ -15,8 +16,28 @@ const LandingPage = () => {
           font-sans font-bold text-center leading-40
           backdrop-filter backdrop-blur-sm
           backdrop-opacity-30 ">
-            Let&apos;s not waste our wonderful world
+            <div className="flex justify-center">
+              <Typewriter className="text-alertBg"
+                onInit={(typewriter) => {
+                  typewriter.typeString('Let\'s Not Waste')
+                    .callFunction(() => {
+                      console.log('String typed out!');
+                    })
+                    .pauseFor(2500)                    
+                    .deleteChars(9)
+                    .typeString('SHARE & SAVE!')                    
+                    .callFunction(() => {
+                      console.log('All strings were deleted');
+                    })
+                    .start();
+                }}
+              />
+                        <span>Our Wonderful World</span>  
+            </div>
+            
+              
           </div>
+
           <div className="absolute w-full  top-0 inset-y-0  text-white text-3xl md:text-4xl lg:text;7xl
           mt-36 uppercase md:mt-40 lg:mt-48
           font-sans font-bold text-center leading-40

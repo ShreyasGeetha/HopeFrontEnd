@@ -269,7 +269,7 @@ const Header = () => {
                     <Link href="/admin">
                       <a
                         
-                        className="ml-6 inline-flex items-center px-4 py-2 border-2 font-sans tracking-wider text-sm font-medium rounded-md shadow-sm text-white bg-headerComplimentary hover:bg-white hover:text-header focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-header"
+                        className="ml-6 inline-flex items-center px-4 py-2 border-2 font-sans tracking-wider text-sm font-bold rounded-md shadow-sm text-white bg-headerComplimentary hover:bg-white hover:text-header focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-header"
                       >
                         Admin Screen
                       </a>

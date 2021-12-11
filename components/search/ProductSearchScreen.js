@@ -32,8 +32,9 @@ const ProductSearchScreen = () => {
           </Link>
           <img src="/bean.jpeg" alt="" />
       </div>
-      </div>}
-      <div className="max-w-4xl mx-auto py-1 px-4 sm:py-1 sm:px-6 lg:max-w-7xl lg:px-8">
+      </div>
+      }
+      {(products.length !== 0) && <div className="max-w-4xl mx-auto py-1 px-4 sm:py-1 sm:px-6 lg:max-w-7xl lg:px-8">
         {/* {console.log('what product details are we getting', products)} */}
         {/* <a 
         onClick={gotoProductScreen}>
@@ -76,7 +77,7 @@ const ProductSearchScreen = () => {
             </div>
           ))}
         </div>      
-      </div>  
+      </div>  }
     </div>
   );
 }

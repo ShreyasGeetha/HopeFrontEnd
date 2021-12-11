@@ -25,7 +25,7 @@ const Search = () => {
       } else {
         console.log('even this?')
         await dispatch(setProductSearchValue(""))
-        router.push('/')
+        router.push('/products')
       }      
     }
   }
