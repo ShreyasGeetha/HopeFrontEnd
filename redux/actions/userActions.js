@@ -178,6 +178,8 @@ export const logout = () => async (dispatch) => {
   dispatch({
       type: USER_LOGOUT
   })
+  localStorage.removeItem('allUserInfo');
+
 } catch (error) {
   
   }

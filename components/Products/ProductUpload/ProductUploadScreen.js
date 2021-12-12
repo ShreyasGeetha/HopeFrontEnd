@@ -23,9 +23,11 @@ const ProductUploadScreen = () => {
   
   useEffect(() => {
 
-    if (userLogin.userInfo.length !== 0) {
+    if (userLogin.userInfo.length !== 0 && userLogin.isUserLogged) {
+      console.log('logged in')
       
     } else {
+      console.log('logged out')
       router.push('/');
     } 
   },[])
@@ -38,7 +40,7 @@ const ProductUploadScreen = () => {
         <div>
           <div>
             <h3 className="text-lg leading-6 text-gray-900 tracking-wider font-bold font-serif  block  ">Upload your product</h3>
-            <p className="mt-1 max-w-2xl text-sm text-red-400 underline tracking-wider font-semibold font-serif text-sm  block  text-gray-700">
+            <p className="mt-1 max-w-2xl  text-red-400 underline tracking-wider font-semibold font-serif text-sm  block ">
               This information will be displayed publicly so be careful what you share.
             </p>
           </div>
