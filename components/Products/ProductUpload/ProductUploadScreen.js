@@ -28,12 +28,12 @@ const ProductUploadScreen = () => {
   
   useEffect(() => {
     const init = async () => {
-      if (userLogin.userInfo.length !== 0 && userLogin.isUserLogged) {
+      if (userLogin.isUserLogged) {
         console.log('logged in')
         
       } else {
         console.log('logged out')
-        router.push('/');
+        //router.push('/');
         await dispatch(showLoginForm(!shouldShowLoginForm))    
 
       }
