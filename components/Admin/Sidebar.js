@@ -55,6 +55,7 @@ const Sidebar = () => {
     // }
 
     // init()
+    console.log('filtered list', productList.products.filter(product => product.isVisible===true).length)
   },[showUserData, showProductData])
 
   return (
@@ -139,7 +140,7 @@ const Sidebar = () => {
                         {true && !(productList.loading) &&
                           <span className='bg-gray-100 group-hover:bg-gray-200 
                               ml-3 inline-block py-0.5 px-3 text-xs font-medium rounded-full'>
-                          {productList.products.length}
+                          {productList.products.filter(product => product.isVisible===true).length}
                           </span>}                    
                       </a>
                     </Link>
@@ -191,7 +192,7 @@ const Sidebar = () => {
                     {true && !(productList.loading) &&
                       <span className='bg-gray-100 group-hover:bg-gray-200 
                           ml-3 inline-block py-0.5 px-3 text-xs font-medium rounded-full'>
-                      {productList.products.length}
+                      {productList.products.filter(product => product.isVisible===true).length}
                       </span>}                    
                   </a>
                 </Link>
