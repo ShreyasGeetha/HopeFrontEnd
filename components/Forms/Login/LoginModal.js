@@ -5,15 +5,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { exitLoginForm } from '../../../redux/actions/ShowLoginFormAction';
 
 import LoginPage from './LoginPage';
+import { useRouter } from 'next/router';
 
 const LoginModal = () => {
   const [open, setOpen] = useState(true)
   const shouldShowLoginForm = useSelector(state => state.shouldShowLoginForm);
+  const router = useRouter()
   
   const dispatch = useDispatch();
 
   const exitSignupForm = async () => {
-    await dispatch(exitLoginForm(!shouldShowLoginForm)) 
+    await dispatch(exitLoginForm(!shouldShowLoginForm))
+    router.push('/')
   }
   
   return (
