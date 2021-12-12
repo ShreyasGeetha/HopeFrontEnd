@@ -27,7 +27,7 @@ const LoginPage = () => {
             <SignInButton />
           </form>
           {/* Options to login through Social Network */}
-          <SocialNetworkLogin />
+          {/* <SocialNetworkLogin /> */}
         </div>
       </div>
     </>
