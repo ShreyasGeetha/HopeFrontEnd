@@ -98,7 +98,8 @@ const ProductsPage = () => {
                             ease-in-out
                             group-hover:font-light'>{product.name}</h2>
                           
-                        {product.sizes.map((size) => (
+                        <span className="text-xl opacity-0 group-hover:opacity-100">{product.brand}</span>
+                          {product.sizes.map((size) => (
                           size.inStock && <p className="flex items-center text-xl opacity-0 group-hover:opacity-100">
                             {size.name}
                           </p>
