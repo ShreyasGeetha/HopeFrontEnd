@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { showLoginForm } from "../../../redux/actions/ShowLoginFormAction";
 import EmailForm from "../../Forms/EmailForm/EmailForm";
 import CancelButton from "./ProductForms/CancelButton";
 import Map from "./ProductForms/Maps/Map";
@@ -19,17 +20,26 @@ import SaveButton from "./ProductForms/SaveButton";
 const ProductUploadScreen = () => {
 
   const router = useRouter();
+  const dispatch = useDispatch()
   const userLogin = useSelector(state => state.userLogin)
+  const shouldShowLoginForm = useSelector(state => state.shouldShowLoginForm);
+  
+  
   
   useEffect(() => {
+    const init = async () => {
+      if (userLogin.userInfo.length !== 0 && userLogin.isUserLogged) {
+        console.log('logged in')
+        
+      } else {
+        console.log('logged out')
+        router.push('/');
+        await dispatch(showLoginForm(!shouldShowLoginForm))    
 
-    if (userLogin.userInfo.length !== 0 && userLogin.isUserLogged) {
-      console.log('logged in')
-      
-    } else {
-      console.log('logged out')
-      router.push('/');
-    } 
+      }
+    }
+    
+    init()
   },[])
   
   return (
