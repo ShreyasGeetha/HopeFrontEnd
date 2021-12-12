@@ -98,9 +98,9 @@ const ProductsPage = () => {
                             ease-in-out
                             group-hover:font-light'>{product.name}</h2>
                           
-                        <span className="text-xl opacity-0 group-hover:opacity-100">{product.brand}</span>
+                        <span className="text-xl font-semibold opacity-0 group-hover:opacity-100">{product.brand}</span>
                           {product.sizes.map((size) => (
-                          size.inStock && <p className="flex items-center text-xl opacity-0 group-hover:opacity-100">
+                          size.inStock && <p className="flex items-center text-xl font-semibold opacity-0 group-hover:opacity-100">
                             {size.name}
                           </p>
                           
