@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import ProductScreen from '../../components/Products/ProductScreen';
+import ProductScreen from '../../components/Products/ProductScreen/ProductScreen';
 
 const ProductDetail = () => {
   const router = useRouter();

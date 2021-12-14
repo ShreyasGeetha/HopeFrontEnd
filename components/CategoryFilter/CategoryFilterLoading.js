@@ -48,29 +48,18 @@ function classNames(...classes) {
 }
 
 const CategoryFilterLoading = () => {
-    const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-
   return (
     <div className="bg-white">
       <div>
         {/* Mobile filter dialog */}
-        
-
-        <>
-         
-
-          < >
-            
-
-            {/* Product grid */}
+        {/* Product grid */}
             <div className="mt-6 lg:mt-0 lg:col-span-2 xl:col-span-3">
               {/* Replace with your content */}
               {/* <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full" /> */}
               {/* /End replace */}
               <ProductsLoadingPage />
             </div>
-          </>
-        </>
+
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { createOrder } from '../../redux/actions/orderActions';
 import Loader from '../Loader';
 import EmptyShoppingCart from './EmptyShoppingCart'
+import Breadcrumb from '../Breadcrumbs/Breadcrumb';
 
 const ShoppingCart = () => {
 
@@ -22,7 +23,7 @@ const ShoppingCart = () => {
   useEffect(() => {
     
     const addCart = async () => {
-      await dispatch(addToCart(productId))
+      //await dispatch(addToCart(productId))
     }
     console.log('has user logged in', userLogin)
     if (userLogin.userInfo.length !== 0) {
@@ -46,8 +47,12 @@ const ShoppingCart = () => {
 
   return (
     <div className="bg-white">
-      {console.log('query',productId)}
+      {console.log('query', productId)}
+      <Breadcrumb crumbs={[
+        { name: 'Products', href: '/products', current: false },
+      ]} />
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-0">
+
         {/* {!cart.loading && <Loader />} */}
         {!cart.isCartEmpty && <h1 className="text-3xl font-extrabold text-center tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>}
 
@@ -116,40 +121,7 @@ const ShoppingCart = () => {
                         </button>
                       </div>
                 </div>
-
-                  {/* <div className="ml-4 flex-1 flex flex-col sm:ml-6">
-                    <div>
-                      <div className="flex justify-between">
-                        <h4 className="text-sm">
-                          <a href={product.href} className="sm:text-lg text-md font-bold text-gray-700 hover:text-gray-800 md:text-lg">
-                            {product.name}
-                          </a>
-                        </h4>
-                        <p className="mt-1 text-md font-bold md:text-lg text-gray-500">{product.color}</p>
-                        <p className="mt-1 text-md font-bold md:text-lg text-gray-500">{product.size}</p>
-                        <div className="mt-6 py-2 text-md font-landingPageFont tracking-wider font-semibold space-y-4 sm:mt-0 sm:ml-0 sm:flex-none sm:w-40">
-                          {product.dropLocation}                  
-                        </div>
-                      </div>
-                      
-                    </div>
-
-                    <div className="mt-4 flex-1 flex items-end justify-between">
-                      <p className="flex items-center text-sm text-gray-700 space-x-2">
-                        <ClockIcon className="flex-shrink-0 h-5 w-5 text-header" aria-hidden="true" />
-                        <span className="font-bold">Pickup: </span>
-                        <span>{product.pickupTime}</span>
-                      </p>
-                      <div className="ml-4">
-                        
-                        <button type="button"
-                          onClick={() => removeFromCart(`${product._id}`)}
-                          className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                          <span>Remove</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div> */}
+                 {}
                 </li>
               ))}
             </ul>}
@@ -160,8 +132,6 @@ const ShoppingCart = () => {
             <h2 id="summary-heading" className="sr-only">
               Order summary
             </h2>
-
-            
 
             {!cart.isCartEmpty && <div className="mt-10">
               <Link href="/orders">
@@ -176,9 +146,7 @@ const ShoppingCart = () => {
                 </a>
               </Link>
             </div>}
-
             
-
             {!cart.isCartEmpty && <div className="mt-6 text-sm text-center">
               <p>
                 or{' '}
@@ -189,6 +157,7 @@ const ShoppingCart = () => {
                 </Link>
               </p>
             </div>}
+
           </section>
         </form>
         <EmptyShoppingCart />

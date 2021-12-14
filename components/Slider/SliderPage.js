@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import { useSelector } from 'react-redux';
+import Breadcrumb from '../Breadcrumbs/Breadcrumb';
 
 
 
@@ -26,38 +27,12 @@ const SliderPage = () => {
                 <div className="bg-gray-50 flex w-full items-center justify-center  mx-auto"
                   key={index}          
                 >
-                  {/* <div className="grid grid-cols-12 h-3/4">                    
-                    <div className="col-start-3 col-span-5">
-                      <img className="h-72" src={item.imageSrc} alt="" />
-                    </div>
-                    <div className="col-start-8 col-span-3">
-                      <div className="flex flex-col place-content-between">
-                        <div className="">
-                        {item.name}
-                        </div>
-                        <div className="">
-                        {item.description}
-                        </div>
-                      </div>
-                    </div>
-                  </div> */}
+                  
                   <div className="cursor-pointer h-3/4 flex content-center  bg-gray-200 md:bg-gray-50" onClick={() => gotoProductScreen(item._id)}>
                     <div>
                       <img className=" p-1 m-2 h-72  " src={item.imageSrc} alt="" />
                     </div>
-                    {/* <div className="flex flex-col h-3/4 items-center">
-                      <div className="hidden  md:block bg-gray-50  ">
-                        <p className="text-black mt-2 text-2xl ">
-                          {item.name}
-                        </p>
-                      </div>
-                      <div></div>
-                      <div className="hidden items-center md:block   ">
-                        <p className="text-black max-w-sm text-2xl ">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div> */}
+                    
                     
                   </div>                   
                     {/* <button>{item.button}</button> */}

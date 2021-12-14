@@ -16,11 +16,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { listProducts } from '../../redux/actions/productActions';
+import { listProductDetails, listProducts } from '../../redux/actions/productActions';
 import CategoryFilterLoading from '../CategoryFilter/CategoryFilterLoading';
 import Image from 'next/image';
 
 import { ThumbUpIcon } from '@heroicons/react/solid';
+import Breadcrumb from '../Breadcrumbs/Breadcrumb';
 
 //useSelector - select the part of the state that you want to use here
 
@@ -44,7 +45,8 @@ const ProductsPage = () => {
     console.log('1')
   },[dispatch])
   
-  const gotoProductScreen = (id) => {
+  const gotoProductScreen = async (id) => {
+    await dispatch(listProductDetails(id))
     router.push(`/product/${id}`)
     console.log('Hello', id)
   }
@@ -56,7 +58,7 @@ const ProductsPage = () => {
         : error
           ? (<h3>{error}</h3>)
           : (                
-            <div className="max-w-4xl mx-auto py-1 px-4 sm:py-1 sm:px-6 lg:max-w-7xl lg:px-8">
+            <div className="max-w-4xl mx-auto py-1 px-4 sm:py-1 sm:px-6 lg:max-w-7xl lg:px-8">              
               {/* {console.log('what product details are we getting', products)} */}
               {/* <a 
               onClick={gotoProductScreen}>
@@ -77,38 +79,40 @@ const ProductsPage = () => {
                         sm:hover:scale-105
                         hover:z-50">
                         <Image
-                          layout="responsive"
+                        layout="responsive"
+                        className=""
                           src={product.imageSrc}
                           height={320}
                           width={260}
                         />
-                        <div className="p-2">
-                        <p className="truncate font-sans
-                            text-lg tracking-wider
-                            transition-all
-                            duration-100
-                            ease-in-out
-                            group-hover:font-extrabold
-                            group-hover:text-4xl                  
-                            font-semibold max-w-md">{product.color}</p>
+                      <div className="p-2">
+                          <p className="truncate font-sans
+                              text-lg tracking-wider
+                              transition-all
+                              duration-100
+                              ease-in-out
+                              group-hover:font-extrabold
+                              group-hover:text-4xl                  
+                              font-semibold max-w-md">{product.color}</p>
 
-                          <h2 className='mt-1 text-2xl font-landingPageFont text-black
-                            transition-all
-                            duration-100
-                            ease-in-out
-                            group-hover:font-light'>{product.name}</h2>
+                            <h2 className='mt-1 lg:mt-0 text-2xl font-landingPageFont text-black
+                              transition-all
+                              duration-100
+                              ease-in-out
+                              group-hover:font-light'>{product.name}</h2>
+
+                        <div className="flex justify-between">
+                          <span className="text-xl font-semibold opacity-0 group-hover:opacity-100">{product.brand}</span>
                           
-                        <span className="text-xl font-semibold opacity-0 group-hover:opacity-100">{product.brand}</span>
                           {product.sizes.map((size) => (
-                          size.inStock && <p className="flex items-center text-xl font-semibold opacity-0 group-hover:opacity-100">
-                            {size.name}
-                          </p>
-                          
-                        ))
-
-                        }
-                          
+                            size.inStock && <p className="flex items-center text-xl font-semibold opacity-0 group-hover:opacity-100">
+                              {size.name}
+                            </p>                          
+                          ))                        
+                          }
                         </div>
+                        
+                      </div>
                       </div>
                     
                     {/* <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 md:h-80  sm:h-80 lg:aspect-none">
