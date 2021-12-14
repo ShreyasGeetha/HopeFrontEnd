@@ -71,7 +71,7 @@ const ShoppingCart = () => {
                     sm:grid sm:grid-cols-10">
                   <XCircleIcon
                     onClick={() => removeFromCart(`${product._id}`)}
-                    className="hidden sm:block h-5 w-5 text-red-500 cursor-pointer transition
+                    className="hidden sm:block h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-red-500 cursor-pointer transition
                         duration-200
                         ease-in transform
                         sm:hover:scale-125"/>
@@ -79,10 +79,9 @@ const ShoppingCart = () => {
                       src={product.imageSrc}
                       alt={product.imageAlt}
                     className="w-40 h-40 mx-auto
-                        md:h-48 md:w-36
-                        rounded-md object-center object-cover sm:w-32 sm:h-32 sm:col-span-2 sm:pr-3"
+                        rounded-md object-center object-cover sm:w-36 sm:h-48 sm:col-span-2 sm:pr-3 md:col-span-4 md:w-56 md:col-start-2 md:mx-0 "
                   />
-                  <div className="sm:col-start-4 sm:col-span-6">
+                  <div className="sm:col-start-4 sm:col-span-6 md:col-start-6 lg:col-start-7">
                   <div className="flex justify-center sm:justify-start
                     sm:col-span-4">
                     <div className=" font-landingPageFont font-semibold text-lg sm:text-2xl md:text-3xl my-2 mx-2">
@@ -98,19 +97,19 @@ const ShoppingCart = () => {
                     </div>
                   </div>
 
-                    <div className="grid sm:flex sm:flex-col">
-                      <div className="font-semibold mx-auto font-serif ">
+                    <div className="grid justify-center sm:flex sm:flex-col">
+                      <div className="font-semibold mx-auto font-serif sm:mx-2 ">
                         Drop Location:
                       </div>
-                      <div className="ml-16 sm:ml-0">
+                      <div className="ml-16 w-44 sm:mx-2 sm:w-36">
                               {product.dropLocation}                  
                       </div>
                     </div>
                    
-                   <div className="relative flex  my-2 justify-center">                      
-                        <ClockIcon className="mt-1 h-5 w-5 text-header" aria-hidden="true" />
+                   <div className="relative flex  my-2 justify-center sm:mx-0 sm:justify-start">                      
+                      <ClockIcon className="mt-1 h-5 w-5 text-header" aria-hidden="true" />
                       <span className="font-bold mx-2">Pickup: </span>
-                        <span className="">{product.pickupTime}</span>
+                      <span className="">{product.pickupTime}</span>
                     </div>
                     <div className="mx-auto sm:hidden">
                         
