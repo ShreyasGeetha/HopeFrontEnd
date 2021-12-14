@@ -93,12 +93,12 @@ const ShoppingCart = () => {
                       {product.color}
                     </div>
                     
-                    <div className="font-serif font-semibold text-md sm:text-lg md:text-xl my-2 mx-2">
+                    <div className="font-serif font-semibold text-md sm:text-lg md:text-xl my-2 mx-2 lg:my-3">
                       {product.size}
                     </div>
                   </div>
 
-                    <div className="grid sm:grid-cols-2">
+                    <div className="grid sm:flex sm:flex-col">
                       <div className="font-semibold mx-auto font-serif ">
                         Drop Location:
                       </div>
