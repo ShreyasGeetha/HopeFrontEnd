@@ -2,17 +2,15 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPassword } from "../../../redux/actions/userActions";
 
-const PasswordForm = ({pass}) => {
+const PasswordForm = () => {
 
   const dispatch = useDispatch();
   const userUpdateProfile = useSelector(state => state.userUpdateProfile)
   const passwordError = useSelector(state => state.passwordError)
 
   const setUserPassword = async (e) => {
-    console.log('Pass', e.target.value)
     await dispatch(setPassword(e.target.value))
   }
-  console.log('Pass', pass)
 
   return (
     <>
@@ -35,7 +33,6 @@ const PasswordForm = ({pass}) => {
             id="password"
             name="password"
             type="password"
-            value={pass}
             autoComplete="current-password"
             onChange={setUserPassword}
             required

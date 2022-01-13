@@ -21,8 +21,8 @@ const LoginPage = () => {
         </div>}
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" action="#" method="POST">            
-            <EmailForm email="admin@example.com" />
-            <PasswordForm pass="1234"/>
+            <EmailForm />
+            <PasswordForm />
             
             <SignInButton />
           </form>
