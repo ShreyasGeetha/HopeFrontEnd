@@ -68,11 +68,11 @@ const ShoppingCart = () => {
               
               {products.map((product) => (
                 <li key={product.id} className="flex flex-col py-6  
-                    sm:grid sm:grid-cols-10">
+                    sm:grid sm:grid-cols-10">                  
                   <XCircleIcon
                     onClick={() => removeFromCart(`${product._id}`)}
                     className="hidden sm:block h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-red-500 cursor-pointer transition
-                        duration-200
+                        duration-100
                         ease-in transform
                         sm:hover:scale-125"/>
                     <img

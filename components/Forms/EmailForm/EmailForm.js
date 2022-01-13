@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {  setEmail } from "../../../redux/actions/userActions";
 
-const EmailForm = () => {
+const EmailForm = ({email}) => {
 
   const dispatch = useDispatch();
   const userLogin = useSelector(state => state.userLogin)
@@ -13,9 +13,10 @@ const EmailForm = () => {
   const { userInfo } = userLogin;
 
   const setUserEmail = async (e) => {
-    
+    console.log('Email', e.target.value)
     await dispatch(setEmail(e.target.value))
   }
+  console.log('Email', email)
  
   return (
     <>
@@ -36,6 +37,7 @@ const EmailForm = () => {
           <input
             id="email"
             name="email"
+            value={email}
             type="email"
             autoComplete=""
             onChange={setUserEmail}

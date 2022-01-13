@@ -10,6 +10,7 @@ import { clearEmail, clearPassword, clearUserName, getUserDetails, logout } from
 import { clear400Errors } from '../../redux/actions/FormActions';
 import { listMyOrders } from '../../redux/actions/orderActions';
 import Search from './Search';
+import DummyLogin from './DummyLogin';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -168,7 +169,8 @@ const Header = () => {
                   </Popover.Button>
                 </div>
                 
-                <div className="hidden md:flex md:items-center md:justify-end xl:col-span-5 xl:col-start-8">                 
+                <div className="hidden md:flex md:items-center md:justify-end xl:col-span-5 xl:col-start-8">     
+                  {!userLogged && <DummyLogin />}  
                   {!userLogged && <Login />}
                   {!userLogged && <Signup />}
                   {userLogged && <div className="group">
@@ -282,6 +284,7 @@ const Header = () => {
             <Popover.Panel as="nav" className="lg:hidden bg-red-100555555 border-1" aria-label="Global">
               {!userLogged &&
                 <div className="border-t flex flex-col border-gray-200 pt-4 pb-3">
+                <DummyLogin />
                 <Login />
                 <Signup />
                 </div>
