@@ -91,7 +91,7 @@ const MyOrders = () => {
                   </div>
                 </div>
                 <div className="mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-40">
-                  <p>Pickup Location:</p> {order.dropLocation}
+                  <p className="font-semibold">Pickup Location:</p> {order.dropLocation}
                   
                 </div>
               </div>

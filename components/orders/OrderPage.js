@@ -30,6 +30,7 @@ const OrderPage = () => {
 
           {orderCreate.loading && <Loader />}
           {!orderCreate.loading && <div className="space-y-24">
+          {console.log('HELLO',order)}
             {order.map((product) => (
               <div
                 key={product._id}
@@ -50,11 +51,9 @@ const OrderPage = () => {
                 <div className="sm:col-span-12 md:col-span-7">
                   <dl className="grid grid-cols-1 gap-y-8 border-b py-8 border-gray-200 sm:grid-cols-2 sm:gap-x-6 sm:py-6 md:py-10">
                     <div>
-                      <dt className="font-medium text-gray-900">Pickup Location</dt>
-                      <dd className="mt-3 text-gray-500">
-                        <span className="block">hjhj</span>
-                        <span className="block">gjhjgh</span>
-                        <span className="block">hggjh</span>
+                      <dt className="text-gray-900 font-bold">Pickup Location</dt>
+                      <dd className="mt-3 font-bold text-gray-500">
+                        {product.dropLocation}                        
                       </dd>
                     </div>
                     <div>
